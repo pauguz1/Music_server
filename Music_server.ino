@@ -3,7 +3,7 @@
 #include <ESP8266HTTPClient.h>
 #include "Peticion.h"
 
-Peticion p("192.168.0.22:8000/");
+Peticion p("http://192.168.0.22:8000/");
 void setup() {
   Serial.begin(9600);
   
@@ -24,11 +24,11 @@ void loop() {
   if(Serial.available()==true){
       String r= Serial.readStringUntil('\n');
       
-      if(r=="a"){// para pausar o reproducir la musica
+      if(r=="a"){//para pausar o reproducir la musica
         p.peticionGet("play");
-      }else if(r=="b"){
-        p.peticionGet("previous");// para regresar la cancion
-      }else if(r=="c"){// para la siguiente cancion
+      }else if(r=="b"){// para regresar la cancion
+        p.peticionGet("previous");
+      }else if(r=="c"){// para cambiar la cancion
         p.peticionGet("next");
       }
       
