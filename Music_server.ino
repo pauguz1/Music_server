@@ -24,14 +24,13 @@ void loop() {
   if(Serial.available()==true){
       String r= Serial.readStringUntil('\n');
       
-      if(r=="a"){//para pausar o reproducir la musica
+      if(r=="play" || r=="pause"){//para pausar o reproducir la musica
         p.peticionGet("play");
-      }else if(r=="b"){// para regresar la cancion
+      }else if(r=="previous" || r=="anterior"){// para regresar la cancion
         p.peticionGet("previous");
-      }else if(r=="c"){// para cambiar la cancion
+      }else if(r=="c"|| r=="next" || r=="next"){// para cambiar la cancion
         p.peticionGet("next");
       }
-      
   }
 
 }
